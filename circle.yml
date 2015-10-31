@@ -1,2 +1,11 @@
 general:
   build_dir: Test
+
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+    
+test:
+  override:
+    - php ./test-suite/run.php --unit-tests
